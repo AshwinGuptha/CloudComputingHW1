@@ -10,7 +10,7 @@ def lambda_handler(event, context):
     # Read from sqs
 
     sqs = boto3.client('sqs')
-    queue_url = 'https://sqs.us-east-1.amazonaws.com/984603423886/Q1'
+    queue_url = 'your_queue_url'
     
     response = sqs.receive_message(
     QueueUrl=queue_url,
