@@ -87,6 +87,6 @@ def lambda_handler(event, context):
          """.format(message,detail[0],detail[1],detail[2])
     
     mail = {"Subject": {"Data": "Your Restaurant Recommendations"}, "Body": {"Html": {"Data": body}}}
-    response = client.send_email(Source = "asg416.ashwin@gmail.com", Destination = {"ToAddresses": [email]}, Message = mail) 
+    response = client.send_email(Source = "your_email_id@gmail.com", Destination = {"ToAddresses": [email]}, Message = mail) 
     
     return 0
