@@ -2,9 +2,9 @@ import json
 import boto3
 from opensearchpy import OpenSearch, RequestsHttpConnection
 
-host = 'https://search-restaurants-jzz5kb56klxsah2dmtephtz24i.us-east-1.es.amazonaws.com/'
+host = 'your_es_host_name'
 port = 443
-auth = ('ashwing', '3lastics3arch@AWS')
+auth = ('es_username', 'es_password')
 
 def lambda_handler(event, context):
     # Read from sqs
@@ -89,13 +89,4 @@ def lambda_handler(event, context):
     mail = {"Subject": {"Data": "Your Restaurant Recommendations"}, "Body": {"Html": {"Data": body}}}
     response = client.send_email(Source = "asg416.ashwin@gmail.com", Destination = {"ToAddresses": [email]}, Message = mail) 
     
-    '''
-    client = boto3.client('sns')
-    
-    client.publish(
-        TopicArn='arn:aws:sns:us-east-1:984603423886:RestaurantRecommendation',
-        Message=message+'Enjoy your meal!',
-        Subject='Your Restaurant Recommendation',
-        )
-    '''
     return 0
